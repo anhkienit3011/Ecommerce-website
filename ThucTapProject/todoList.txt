@@ -1,0 +1,31 @@
+﻿Them bon bang:
+-phan quyen:
+	them, sua, xoa, hien thi
+
+-nguoi dung:
+	+them(dang ky & account): kiem tra trùng lặp email, sdt, cap nhat thoi gian tao
+	+sua(thong tin nguoi dung): kiem tra trủng lặp email, sdt, cap nhap thoi gian sua
+	+ khong cho phep ten co ki tu dac biet, dinh dang ten
+	+ add account truoc khi add user
+	+
+
+- tai khoan:
++ bo truong user_name
+	+ status: 
+		-1: active
+		-2: inactive 
+		-3: blocked
+		-4: validated
+		-5: not validated
+		-6: removed
+	xac thuc tai khoan: su dung reset password token
+		+ xac thuc khi them tai khoan, sua mat khau
+	them: user_name tu luc tao user moi, 
+		+ status: default = not validated until xac thuced
+		+ avatar: mac dinh null
+		+ cap nhap thoi gian tao
+		+ token va expity token = null
+	sua: 
+	xoa: chuyen status qua removed, xoa mem
+	tim kiem tai khoan: theo ten(bat buoc) phone, email, filter(address)
+_controller_Account_user: goi them user va account

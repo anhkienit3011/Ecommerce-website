@@ -1,0 +1,212 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace ThucTapProject.Migrations
+{
+    /// <inheritdoc />
+    public partial class updatev : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Accountt_Decentralization_DecentralizationId",
+                table: "Accountt");
+
+            migrationBuilder.DropColumn(
+                name: "UserName",
+                table: "Accountt");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "UserName",
+                table: "User",
+                type: "nvarchar(max)",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "VARCHAR(50)",
+                oldMaxLength: 50);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Phone",
+                table: "User",
+                type: "nvarchar(max)",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "VARCHAR(11)",
+                oldMaxLength: 11);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Email",
+                table: "User",
+                type: "nvarchar(max)",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "VARCHAR(100)",
+                oldMaxLength: 100);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Address",
+                table: "User",
+                type: "nvarchar(max)",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "VARCHAR(200)",
+                oldMaxLength: 200);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "AuthorityName",
+                table: "Decentralization",
+                type: "nvarchar(max)",
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "VARCHAR(40)",
+                oldMaxLength: 40);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Password",
+                table: "Accountt",
+                type: "nvarchar(max)",
+                nullable: false,
+                defaultValue: "",
+                oldClrType: typeof(string),
+                oldType: "VARCHAR(50)",
+                oldMaxLength: 50,
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<int>(
+                name: "DecentralizationId",
+                table: "Accountt",
+                type: "int",
+                nullable: false,
+                defaultValue: 0,
+                oldClrType: typeof(int),
+                oldType: "int",
+                oldNullable: true);
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Avatar",
+                table: "Accountt",
+                type: "nvarchar(max)",
+                nullable: true,
+                oldClrType: typeof(string),
+                oldType: "VARCHAR(2000)",
+                oldMaxLength: 2000,
+                oldNullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "AccountName",
+                table: "Accountt",
+                type: "nvarchar(max)",
+                nullable: false,
+                defaultValue: "");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Accountt_Decentralization_DecentralizationId",
+                table: "Accountt",
+                column: "DecentralizationId",
+                principalTable: "Decentralization",
+                principalColumn: "DecentralizationId",
+                onDelete: ReferentialAction.Cascade);
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Accountt_Decentralization_DecentralizationId",
+                table: "Accountt");
+
+            migrationBuilder.DropColumn(
+                name: "AccountName",
+                table: "Accountt");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "UserName",
+                table: "User",
+                type: "VARCHAR(50)",
+                maxLength: 50,
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Phone",
+                table: "User",
+                type: "VARCHAR(11)",
+                maxLength: 11,
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Email",
+                table: "User",
+                type: "VARCHAR(100)",
+                maxLength: 100,
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Address",
+                table: "User",
+                type: "VARCHAR(200)",
+                maxLength: 200,
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "AuthorityName",
+                table: "Decentralization",
+                type: "VARCHAR(40)",
+                maxLength: 40,
+                nullable: false,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Password",
+                table: "Accountt",
+                type: "VARCHAR(50)",
+                maxLength: 50,
+                nullable: true,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)");
+
+            migrationBuilder.AlterColumn<int>(
+                name: "DecentralizationId",
+                table: "Accountt",
+                type: "int",
+                nullable: true,
+                oldClrType: typeof(int),
+                oldType: "int");
+
+            migrationBuilder.AlterColumn<string>(
+                name: "Avatar",
+                table: "Accountt",
+                type: "VARCHAR(2000)",
+                maxLength: 2000,
+                nullable: true,
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)",
+                oldNullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "UserName",
+                table: "Accountt",
+                type: "VARCHAR(50)",
+                maxLength: 50,
+                nullable: false,
+                defaultValue: "");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Accountt_Decentralization_DecentralizationId",
+                table: "Accountt",
+                column: "DecentralizationId",
+                principalTable: "Decentralization",
+                principalColumn: "DecentralizationId");
+        }
+    }
+}
